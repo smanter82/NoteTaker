@@ -1,6 +1,5 @@
 //Dependencies
 const express = require("express");
-const path = require("path");
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
@@ -13,7 +12,8 @@ app.use(express.static("public"));
 //array variables that will hold the data
 // const database = require("./db.json");
 
-require("./routes/htmlRoutes.js")(app)
+require("./routes/htmlRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);

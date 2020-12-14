@@ -1,25 +1,31 @@
 const path = require("path");
 const fs = require("fs");
 const db = require("../db/db.json")
-
+const { v4: uuidv4 } = require('uuid')
+// const dataFile = JSON.parse(fs.readFileSync(path.join(__dirname + db), "utf-8"));
 
 module.exports = function (app) {
-    //API GET Requests
+    //API GET Request
 
-// app.get('/db/data', function (req, res) {
-//     res.json(tableData);
-//   });
+    app.get('/api/notes', function (req, res) {
+      res.json(db);
+      // console.log(dataFile)
+    })
 
-//   app.get('/api/waitlist', function (req, res) {
-//     res.json(waitListData);
-//   });
 
-  // ---------------------------------------------------------------------------
-
-  // post
+  // post request
   app.post('/api/notes', function (req, res) {
-    const data = req.body;
-    db.push(data)
-    res.json(db)
+    const data = {
+      title: req.body.title,
+      text: req.body.text,
+      id: uuidv4(),
+    };
+    db.push(data);
+    res.json(db);
+    // console.log(db)
+    fs.writeFile("../db/db.json", JSON.stringify(db), (err)=>{
+      if(err) throw error;
+    });
 });
+
 }

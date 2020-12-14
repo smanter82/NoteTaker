@@ -21,11 +21,13 @@ module.exports = function (app) {
       id: uuidv4(),
     };
     db.push(data);
-    res.json(db);
+    // res.json(db);
     // console.log(db)
-    fs.writeFile("../db/db.json", JSON.stringify(db), (err)=>{
+    fs.writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(db), (err)=>{
       if(err) throw error;
     });
+    res.json(db);
+    console.log(db)
 });
 
 }

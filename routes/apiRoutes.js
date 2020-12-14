@@ -10,7 +10,7 @@ module.exports = function (app) {
     app.get('/api/notes', function (req, res) {
       res.json(db);
       // console.log(dataFile)
-    })
+    });
 
 
   // post request
@@ -21,13 +21,27 @@ module.exports = function (app) {
       id: uuidv4(),
     };
     db.push(data);
-    // res.json(db);
+    res.json(db);
     // console.log(db)
     fs.writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(db), (err)=>{
       if(err) throw error;
     });
-    res.json(db);
+    
     console.log(db)
 });
+
+//delete request
+app.delete('/api/notes', function(req, res) {
+    const noteId = parseInt(req.params.id);
+    
+    for (i=0; i<db.length; i++) {
+      if (db[i].id == noteId){
+        res.send(db[i]);
+        db.splice(i, 1);
+      }
+    }
+
+
+})
 
 }

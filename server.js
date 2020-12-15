@@ -1,5 +1,6 @@
 //Dependencies
 const express = require("express");
+// const db = require("./db/db.json")
 
 //Create express server
 const app = express();
@@ -12,8 +13,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Router
-require("./routes/htmlRoutes.js")(app);
 require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 //Listener
 app.listen(PORT, function () {

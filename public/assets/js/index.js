@@ -55,7 +55,7 @@ const handleNoteSave = function () {
     title: $noteTitle.val(),
     text: $noteText.val(),
   };
-
+  // console.log(newNote)
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -104,6 +104,7 @@ const handleRenderSaveBtn = function () {
 // Render's the list of note titles
 const renderNoteList = (notes) => {
   $noteList.empty();
+  // console.log(notes)
 
   const noteListItems = [];
 
@@ -130,6 +131,7 @@ const renderNoteList = (notes) => {
   notes.forEach((note) => {
     const $li = create$li(note.title).data(note);
     noteListItems.push($li);
+    // console.log($li)
   });
 
   $noteList.append(noteListItems);

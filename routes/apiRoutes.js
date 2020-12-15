@@ -4,12 +4,14 @@ const fs = require("fs");
 const db = require("../db/db.json")
 const { v4: uuidv4 } = require('uuid')
 
-module.exports = function (app) {
+module.exports = function(app) {
     //API GET Request
 
     app.get('/api/notes', function (req, res) {
+      console.log("api get route");
+      // fs.readFileSync("../db/db.json");
       res.json(db);
-      // console.log(dataFile)
+
     });
 
 
@@ -22,12 +24,12 @@ module.exports = function (app) {
       id: uuidv4(),
     };
     db.push(data);
-    res.json(db);
-    fs.writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(db), (err)=>{
+    // res.json(db);
+    fs.writeFile(path.join(__dirname, "/../db/db.json"), JSON.stringify(db), (err)=>{
       if(err) throw error;
     });
-    
-    console.log(db)
+    res.json(db);
+    // console.log(db)
 });
 
 //API delete request
@@ -49,5 +51,3 @@ app.delete('/api/notes', function(req, res) {
 })
 
 }
-
-// module.exports = app;

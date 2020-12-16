@@ -5,9 +5,9 @@ This is an application designed to allow busy people to take and keep track of n
 
 Deployed page:  https://smanter82-note-taker.herokuapp.com/
 
-![Home Page](./NoteTaker/public/Assets/homeScreenshot.png)
+![Screenshot of Website](./Assets/homeScreenshot.png)
 
-![Notes Page](./NoteTaker/public/Assets/notesScreenshot.png)
+![Screenshot of Website](./Assets/notesScreenshot.png)
 
 ## Use
 

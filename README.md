@@ -5,9 +5,9 @@ This is an application designed to allow busy people to take and keep track of n
 
 Deployed page:  https://smanter82-note-taker.herokuapp.com/
 
-[Home Page](./Assets/homeScreenshot.png)
+![Home Page](./Assets/homeScreenshot.png)
 
-[Notes Page](./Assets/notesScreenshot.png)
+![Notes Page](./Assets/notesScreenshot.png)
 
 ## Use
 
@@ -16,6 +16,7 @@ Deployed page:  https://smanter82-note-taker.herokuapp.com/
 *Click on the save disc in the upper right hand corner.
 *To view a previous note, click on the note title in the list on the left hand side of the page.
 *To delete an old note, click on the red trashcan next to the note.
+
 ## Installation requirements
 *Node
 *npm install to install dependencies
